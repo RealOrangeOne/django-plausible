@@ -46,4 +46,4 @@ These settings will affect all calls to the `plausible` template tag. To overrid
 {% plausible plausible_domain="my-plausible.com" %}
 ```
 
-By default, the domain used will be based on the request's hostname [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host). To override this, pass `hostname` to the template tag.
+By default, the domain used will be based on the request's hostname (using [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host)). To override this, pass `hostname` to the template tag.
