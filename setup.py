@@ -5,7 +5,7 @@ with open("README.md") as f:
 
 setup(
     name="django-plausible",
-    version="0.0.1",
+    version="0.1.0",
     url="https://github.com/RealOrangeOne/django-plausible",
     author="Jake Howard",
     description=" Django module to provide easy Plausible integration, with Wagtail support",
