@@ -7,7 +7,7 @@
 ![PyPI - License](https://img.shields.io/pypi/l/django-plausible.svg)
 
 
-Django module to provide easy [Plausible](https://plausible.io/) integration, with Wagtail support.
+Django module to provide easy [Plausible](https://plausible.io/) integration, with [Wagtail](https://wagtail.io/) support.
 
 ## Installation
 
@@ -49,3 +49,21 @@ These settings will affect all calls to the `plausible` template tag. To overrid
 By default, the domain (`data-domain`) used will be based on the request's hostname (using [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host)). To override this, pass `site_domain` to the template tag.
 
 If the ["compat" script](https://plausible.io/docs/script-extensions#plausiblecompatjs) is used, `django-plausible` will automatically add the required `id` to the `script` tag. It is excluded by default to help hide Plausible's presence.
+
+## Usage with Wagtail
+
+Additionally, `django-plausible` provides an (optional) deep integration with [Wagtail](https://wagtail.io), allowing configuration through the Wagtail admin. To enable this, additionally add `plausible.contrib.wagtail` to `INSTALLED_APPS`.
+
+Configuration is done through the "Plausible Analytics" [setting](https://docs.wagtail.io/en/stable/reference/contrib/settings.html#settings):
+
+- `site_domain`: the value for `data-domain`. If left blank (the default), the request's hostname will be used (as above), **not** the site hostname.
+- `plausible_domain`: The domain Plausible is running on (as above)
+- `script_name`: The name of the script to use (as above)
+
+To access the template tag, load `plausible_wagtail`, rather than `plausible`. The template tag itself is still `plausible`. Note that unlike the Django variant, the Wagtail template tag doesn't allow options to be passed.
+
+```html
+{% load plausible_wagtail %}
+
+{% plausible %}
+```
