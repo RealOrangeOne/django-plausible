@@ -40,12 +40,12 @@ Configuration can be changed either in `settings.py`, or when calling the `plaus
 - `PLAUSIBLE_DOMAIN`: The domain Plausible is running on (defaults to `plausible.io`)
 - `PLAUSIBLE_SCRIPT_NAME`: The name of the script to use (defaults to `plausible.js`). See [script extensions](https://plausible.io/docs/script-extensions) for available options.
 
-These settings will affect all calls to the `plausible` template tag. To override it at call time, pass lowercased versions of these. eg:
+These settings will affect all calls to the `plausible` template tag. To override it at call time, you can also pass them into the template tag:
 
 ```
-{% plausible plausible_domain="my-plausible.com" %}
+{% plausible plausible_domain="my-plausible.com" script_name="plausible.hash.js" %}
 ```
 
-By default, the domain used will be based on the request's hostname (using [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host)). To override this, pass `hostname` to the template tag.
+By default, the domain (`data-domain`) used will be based on the request's hostname (using [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host)). To override this, pass `site_domain` to the template tag.
 
 If the ["compat" script](https://plausible.io/docs/script-extensions#plausiblecompatjs) is used, `django-plausible` will automatically add the required `id` to the `script` tag. It is excluded by default to help hide Plausible's presence.

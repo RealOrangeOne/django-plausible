@@ -8,28 +8,24 @@ register = template.Library()
 
 
 @register.simple_tag(takes_context=True)
-def plausible(
-    context, hostname=None, plausible_domain=None, plausible_script_name=None
-):
+def plausible(context, site_domain=None, plausible_domain=None, script_name=None):
     request = context["request"]
 
     if plausible_domain is None:
         plausible_domain = getattr(settings, "PLAUSIBLE_DOMAIN", "plausible.io")
-    if plausible_script_name is None:
-        plausible_script_name = getattr(
-            settings, "PLAUSIBLE_SCRIPT_NAME", "plausible.js"
-        )
-    if hostname is None:
-        hostname = escape(request.get_host())  # In case of XSS
+    if script_name is None:
+        script_name = getattr(settings, "PLAUSIBLE_SCRIPT_NAME", "plausible.js")
+    if site_domain is None:
+        site_domain = escape(request.get_host())  # In case of XSS
 
     attrs = {
         "defer": True,
-        "data-domain": hostname,
-        "src": f"https://{plausible_domain}/js/{plausible_script_name}",
+        "data-domain": site_domain,
+        "src": f"https://{plausible_domain}/js/{script_name}",
     }
 
     # Add a target id for use with compat script
-    if "compat" in plausible_script_name:
+    if "compat" in script_name:
         attrs["id"] = "plausible"
 
     return mark_safe(f"<script{flatatt(attrs)}></script>")
