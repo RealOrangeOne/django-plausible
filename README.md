@@ -7,7 +7,7 @@
 ![PyPI - License](https://img.shields.io/pypi/l/django-plausible.svg)
 
 
-Django module to provide easy Plausible integration, with Wagtail support.
+Django module to provide easy [Plausible](https://plausible.io/) integration, with Wagtail support.
 
 ## Installation
 
