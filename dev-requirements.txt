@@ -1,4 +1,4 @@
--e .
+-e .[wagtail]
 
 flake8==3.8.4
 flake8-bugbear==20.11.1
