@@ -37,8 +37,8 @@ Will result in:
 
 Configuration can be changed either in `settings.py`, or when calling the `plausible` template tag:
 
-`PLAUSIBLE_DOMAIN`: The domain Plausible is running on (defaults to `plausible.io`)
-`PLAUSIBLE_SCRIPT_NAME`: The name of the script to use (defaults to `plausible.js`). See [script extensions](https://plausible.io/docs/script-extensions) for available options.
+- `PLAUSIBLE_DOMAIN`: The domain Plausible is running on (defaults to `plausible.io`)
+- `PLAUSIBLE_SCRIPT_NAME`: The name of the script to use (defaults to `plausible.js`). See [script extensions](https://plausible.io/docs/script-extensions) for available options.
 
 These settings will affect all calls to the `plausible` template tag. To override it at call time, pass lowercased versions of these. eg:
 
