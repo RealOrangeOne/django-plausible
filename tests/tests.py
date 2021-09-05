@@ -51,6 +51,18 @@ def test_custom_script_name(rf):
     )
 
 
+def test_compat_script_has_id(rf):
+    request = rf.get("/")
+    rendered = _render_string(
+        '{% load plausible %}{% plausible plausible_script_name="plausible.compat.js" %}',
+        context=RequestContext(request),
+    )
+    assertInHTML(
+        '<script id="plausible" defer data-domain="testserver" src="https://plausible.io/js/plausible.compat.js"></script>',
+        rendered,
+    )
+
+
 def test_custom_domain_from_settings(settings, rf):
     settings.PLAUSIBLE_DOMAIN = "my-plausible.com"
     request = rf.get("/")

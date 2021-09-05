@@ -28,4 +28,8 @@ def plausible(
         "src": f"https://{plausible_domain}/js/{plausible_script_name}",
     }
 
+    # Add a target id for use with compat script
+    if "compat" in plausible_script_name:
+        attrs["id"] = "plausible"
+
     return mark_safe(f"<script{flatatt(attrs)}></script>")

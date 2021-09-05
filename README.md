@@ -47,3 +47,5 @@ These settings will affect all calls to the `plausible` template tag. To overrid
 ```
 
 By default, the domain used will be based on the request's hostname (using [`request.get_host()`](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.get_host)). To override this, pass `hostname` to the template tag.
+
+If the ["compat" script](https://plausible.io/docs/script-extensions#plausiblecompatjs) is used, `django-plausible` will automatically add the required `id` to the `script` tag. It is excluded by default to help hide Plausible's presence.
