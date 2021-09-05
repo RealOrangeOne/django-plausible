@@ -16,7 +16,7 @@ setup(
     package_data={"plausible": ["py.typed"]},
     install_requires=["Django>=2.2"],
     python_requires=">=3.6",
-    extra_require={"wagtail": ["wagtail>=2.13"]},
+    extras_require={"wagtail": ["wagtail>=2.13"]},
     keywords="django plausible wagtail analytics",
     classifiers=[
         "Environment :: Web Environment",
