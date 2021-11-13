@@ -14,7 +14,7 @@ setup(
     license="BSD",
     packages=find_packages(include=["plausible*"]),
     package_data={"plausible": ["py.typed"]},
-    install_requires=["Django>=2.2"],
+    install_requires=["Django>=3.1"],
     python_requires=">=3.6",
     extras_require={"wagtail": ["wagtail>=2.13"]},
     keywords="django plausible wagtail analytics",
