@@ -9,6 +9,7 @@ jobs:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
         django-version: ["3.2", "4.0", "4.1"]
+        wagtail-version: ["2.15", "3.0"]
         exclude:
           - django-version: "4.1"
             python-version: "3.7"
@@ -29,6 +30,7 @@ jobs:
           pip install --upgrade pip
           pip install -r dev-requirements.txt
           pip install Django~=${{ matrix.django-version }}
+          pip install Wagtail~=${{ matrix.wagtail-version }}
       - name: Run tests
         run: scripts/test.sh
       - name: Build package
