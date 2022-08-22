@@ -79,3 +79,7 @@ def test_validates_script_name(script_name):
 def test_invalid_script_names(script_name):
     with pytest.raises(ValidationError):
         PlausibleScriptNameValidator()(script_name)
+
+
+def test_app_label():
+    assert PlausibleSettings._meta.app_label == "wagtailplausible"
