@@ -13,6 +13,6 @@ fi
 
 flake8 plausible tests setup.py
 
-isort -rc -c plausible tests setup.py
+isort -c plausible tests setup.py
 
 mypy plausible tests setup.py
