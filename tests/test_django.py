@@ -1,3 +1,4 @@
+import pytest
 from django.template import RequestContext, Template
 from pytest_django.asserts import assertInHTML
 
@@ -87,3 +88,13 @@ def test_custom_script_name_from_settings(settings, rf):
         '<script defer data-domain="testserver" src="https://plausible.io/js/plausible.hash.js"></script>',
         rendered,
     )
+
+
+def test_invalid_script_name(settings, rf):
+    settings.PLAUSIBLE_SCRIPT_NAME = "left-pad.js"
+    request = rf.get("/")
+    with pytest.raises(ValueError):
+        _render_string(
+            "{% load plausible %}{% plausible %}",
+            context=RequestContext(request),
+        )

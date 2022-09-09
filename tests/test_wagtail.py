@@ -65,18 +65,8 @@ def test_validates_script_name(script_name):
     PlausibleScriptNameValidator()(script_name)
 
 
-@pytest.mark.parametrize(
-    "script_name",
-    [
-        "left-pad.js",
-        "plausible.io",
-        "plausible..js",
-        "plausible.nothing.js",
-        "plausible.hash",
-        "hash.js",
-    ],
-)
-def test_invalid_script_names(script_name):
+@pytest.mark.parametrize("script_name", ["/js/plausible.js", "left-pad.js"])
+def test_invalid_script_name(script_name):
     with pytest.raises(ValidationError):
         PlausibleScriptNameValidator()(script_name)
 

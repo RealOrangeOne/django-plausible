@@ -4,6 +4,8 @@ from django.forms.utils import flatatt
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
 
+from plausible.utils import is_valid_plausible_script
+
 register = template.Library()
 
 
@@ -17,6 +19,9 @@ def plausible(context, site_domain=None, plausible_domain=None, script_name=None
         script_name = getattr(settings, "PLAUSIBLE_SCRIPT_NAME", "plausible.js")
     if site_domain is None:
         site_domain = escape(request.get_host())  # In case of XSS
+
+    if not is_valid_plausible_script(script_name):
+        raise ValueError(f"Invalid plausible script name: {script_name}")
 
     attrs = {
         "defer": True,
