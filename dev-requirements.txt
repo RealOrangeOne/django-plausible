@@ -1,15 +1,15 @@
 -e .[wagtail]
 
-flake8==3.8.4
-flake8-bugbear==20.11.1
-flake8-builtins==1.5.3
-flake8-comprehensions==3.3.0
+flake8==5.0.4
+flake8-bugbear==22.10.27
+flake8-builtins==2.0.0
+flake8-comprehensions==3.10.0
 flake8-mutable==1.2.0
-flake8-print==4.0.0
+flake8-print==5.0.0
 flake8-tuple==0.4.1
-mypy==0.790
-isort==5.6.4
-black==22.6.0
-pytest==7.1.2
+mypy==0.982
+isort==5.10.1
+black==22.10.0
+pytest==7.2.0
 pytest-django==4.5.2
-pytest-cov==3.0.0
+pytest-cov==4.0.0
