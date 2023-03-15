@@ -11,8 +11,6 @@ then
     black plausible tests setup.py --check
 fi
 
-flake8 plausible tests setup.py
-
-isort -c plausible tests setup.py
+ruff check plausible tests setup.py
 
 mypy plausible tests setup.py
