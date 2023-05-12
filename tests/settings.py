@@ -19,7 +19,7 @@ INSTALLED_APPS = [
     "wagtail.sites",
     "wagtail.users",
     "wagtail.admin",
-    "wagtail.core",
+    "wagtail",
 ]
 
 TEMPLATES = [
