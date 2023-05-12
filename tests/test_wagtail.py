@@ -1,7 +1,7 @@
 import pytest
 from django.core.exceptions import ValidationError
 from pytest_django.asserts import assertInHTML
-from wagtail.core.models import Site
+from wagtail.models import Site
 
 from plausible.contrib.wagtail.models import PlausibleSettings
 from plausible.contrib.wagtail.validators import PlausibleScriptNameValidator
